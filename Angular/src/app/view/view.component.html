@@ -1,0 +1,99 @@
+<!-- <div class="container p-5">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="text-center">
+
+
+                    <div class="img-hover-zoom img-hover-zoom--colorize">
+                        <img class="shadow" src="../../assets/placeHolder.png"
+                            alt="Another Image zoom-on-hover effect">
+                    </div>
+
+                </div>
+
+                <div class="card-body" *ngFor="let item of taxPro">
+                    <div class="clearfix mb-3">
+
+
+
+
+                    </div>
+
+
+                    <div class="my-2 text-center" >
+
+                        <h1>{{item.taxProName}}</h1>
+
+                    </div>
+                    <div class="mb-3">
+
+                        <h2 class="text-uppercase text-center role">{{item.consultentType}}</h2>
+                        <h3 class="text-uppercase text-center role">{{item.stateName}}</h3>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><i class="fab fa-linkedin-in"></i></li>
+                                <li class="list-inline-item"><i class="fab fa-instagram"></i></li>
+                                <li class="list-inline-item"><i class="fab fa-twitter"></i></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div> -->
+
+
+
+        
+<div class="container" id="home-container">
+    <div class="row">
+            <div class="col-12 card card-box" *ngFor="let item of taxPro">
+              <div class="row">
+                <!-- <div class="col-4">
+                  <div class="img-placeholder">
+                    <img src="../../assets/placeHolder.png">
+                  </div>
+                </div> -->
+                <div class="img-hover-zoom img-hover-zoom--colorize">
+                    <img class="shadow" src="../../assets/placeHolder.png"
+                        alt="Another Image zoom-on-hover effect">
+                </div>
+                <div class="col-8">
+                  <div >
+                    <h3>{{item.taxProName}}</h3><br>
+                    <span>RonsultentType:{{item.consultentType}}</span><br>
+                    <span>RatePerHour:{{item.ratePerHour}}</span><br>
+                    <p>State{{item.stateName}}</p>
+                    <!-- <p><i class="fa fa-eye " style="cursor: pointer;" (click)="viewDetail(item.taxProId)"></i>View Details</p> -->
+                 
+                    <div class="box">
+                        <div>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><i class="fab fa-linkedin-in"></i></li>
+                                <li class="list-inline-item"><i class="fab fa-instagram"></i></li>
+                                <li class="list-inline-item"><i class="fab fa-twitter"></i></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <label class="five" for="star1" title="text">1 star</label>
+                        <label for="star1" title="text">1 star</label>
+                        <label for="star1" title="text">1 star</label>
+                        <label for="star1" title="text">1 star</label>
+                        <label for="star1" class="one" title="text">1 star</label>
+                      </div>
+                </div>
+                </div>
+              </div>
+              
+             
+
+            </div>
+    </div>
+</div>
