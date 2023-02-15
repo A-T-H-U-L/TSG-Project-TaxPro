@@ -54,7 +54,6 @@ export class AddComponent implements OnInit {
       consultentType: ['', Validators.required],
       ratePerHour: ['', Validators.required],
       state: ['', Validators.required],
-      
     });
   }
 }

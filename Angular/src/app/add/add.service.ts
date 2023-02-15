@@ -7,12 +7,11 @@ const routes = {
   quote: (c: RandomQuoteContext) => `/jokes/random?category=${c.category}`,
 };
 
-
 export interface DetailContext {
   name: string;
-  consultentType:string;
+  consultentType: string;
   ratePerHour: any;
-  state:string
+  state: string;
   // remember?: boolean;
 }
 
@@ -36,12 +35,10 @@ export class AddService {
   // }
 
   AddTaxPro(requestObj: DetailContext): Observable<any> {
-    return this.httpClient.post('/taxpro/add', requestObj, { observe: "response" }).pipe(
+    return this.httpClient.post('/taxpro/add', requestObj, { observe: 'response' }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })
     );
   }
-
-
 }

@@ -27,13 +27,6 @@ this.userName = this.credentialsService.getUserName();
     
 }
 
-  // toggleMenu() {
-  //   this.menuHidden = !this.menuHidden;
-  // }
-
-  // logout() {
-  //   this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-  // }
 
   logout(): Observable<boolean> {
     // Customize credentials invalidation here

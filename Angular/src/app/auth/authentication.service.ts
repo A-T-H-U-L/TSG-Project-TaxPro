@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of,map} from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
 
@@ -12,7 +12,7 @@ export interface LoginContext {
 
 export interface RegiterContext {
   name: string;
-  email:string;
+  email: string;
   password: string;
   // remember?: boolean;
 }
@@ -25,7 +25,7 @@ export interface RegiterContext {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private credentialsService: CredentialsService,private http:HttpClient) {}
+  constructor(private credentialsService: CredentialsService, private http: HttpClient) {}
 
   /**
    * Authenticates the user.
@@ -34,16 +34,15 @@ export class AuthenticationService {
    */
 
   login(requestObj: LoginContext): Observable<any> {
-    return this.http.post('/auth/login', requestObj, { observe: "response" }).pipe(
+    return this.http.post('/auth/login', requestObj, { observe: 'response' }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })
     );
   }
 
-
   register(requestObj: RegiterContext): Observable<any> {
-    return this.http.post('/auth/register', requestObj, { observe: "response" }).pipe(
+    return this.http.post('/auth/register', requestObj, { observe: 'response' }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })

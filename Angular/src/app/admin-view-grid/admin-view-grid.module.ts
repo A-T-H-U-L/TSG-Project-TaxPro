@@ -9,13 +9,7 @@ import { AdminViewGridRoutingModule } from './admin-view-grid-routing.module';
 import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, SharedModule,AdminViewGridRoutingModule,AgGridModule],
+  imports: [CommonModule, TranslateModule, SharedModule, AdminViewGridRoutingModule, AgGridModule],
   declarations: [AdminViewGridComponent],
 })
-export class AdminViewGridModule {
-
-
-
-
-  
-}
+export class AdminViewGridModule {}

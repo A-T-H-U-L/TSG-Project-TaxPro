@@ -5,18 +5,15 @@
     <div class="infinity-fold">
       <div class="infinity-form">
         <form class="form-box" (ngSubmit)="register()" class="form-box" id="form" [formGroup]="registerForm" novalidate>
-          <small
-          [hidden]="!apiErr"
-          class="text-danger"
-          translate
-        >
-         {{errText}}
-        </small>
+          <small [hidden]="!apiErr" class="text-danger" translate>
+            {{errText}}
+          </small>
           <div class="form-input">
             <label class="d-block mb-3">
               <span><i class="fa fa-user"></i></span>
-              <input type="text" name="fullname" [ngClass]="{'invalid': !registerForm.controls['name'].valid && !registerForm.controls['name'].untouched }" placeholder="Full Name" formControlName="name" tabindex="10"
-                required />
+              <input type="text" name="fullname"
+                [ngClass]="{'invalid': !registerForm.controls['name'].valid && !registerForm.controls['name'].untouched }"
+                placeholder="Full Name" formControlName="name" tabindex="10" required />
               <small [hidden]="registerForm.controls['name'].valid || registerForm.controls['name'].untouched"
                 class="text-danger" translate>
                 name is required*
@@ -56,16 +53,17 @@
               <span><i class="fa fa-lock"></i></span>
               <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword"
                 placeholder="ConfirmPassword" required />
-              <small [hidden]="registerForm.controls['confirmPassword'].valid || registerForm.controls['confirmPassword'].untouched"
+              <small
+                [hidden]="registerForm.controls['confirmPassword'].valid || registerForm.controls['confirmPassword'].untouched"
                 class="text-danger" translate>
                 confirmPassword is required*
               </small>
 
             </label>
           </div>
-          
+
           <div class="col-12 px-0 text-right">
-            <button type="submit" class="btn mb-3"  [disabled]="registerForm.invalid || isLoading" >Register</button>
+            <button type="submit" class="btn mb-3" [disabled]="registerForm.invalid || isLoading">Register</button>
           </div>
 
           <div class="text-center">

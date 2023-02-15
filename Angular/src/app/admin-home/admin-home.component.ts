@@ -4,21 +4,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.scss']
+  styleUrls: ['./admin-home.component.scss'],
 })
 export class AdminHomeComponent implements OnInit {
+  constructor(private _roter: Router) {}
 
-  constructor(private _roter:Router) { }
-
-  ngOnInit(): void {
-
-    
+  ngOnInit(): void {}
+  navigate() {
+    this._roter.navigate(['/add']);
   }
-navigate(){
-  this._roter.navigate(['/add'])
-}
-navigate3(){
-  this._roter.navigate(['/adminView']) 
-}
-
+  navigate3() {
+    this._roter.navigate(['/adminView']);
+  }
 }

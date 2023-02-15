@@ -6,9 +6,8 @@ import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, data: { title: marker('Login') }},
-  { path: 'register', component: RegistrationComponent, data: { title: marker('Registration') } }
-
+  { path: 'login', component: LoginComponent, data: { title: marker('Login') } },
+  { path: 'register', component: RegistrationComponent, data: { title: marker('Registration') } },
 ];
 
 @NgModule({

@@ -71,14 +71,14 @@
   color: #454b69;
 }
 
-.infinity-form input[type="checkbox"]:not(:checked) + label:before {
+.infinity-form input[type="checkbox"]:not(:checked)+label:before {
   background: transparent;
   border: 2px solid #fff;
   width: 15px;
   height: 15px;
 }
 
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
   background-color: #ff8333 !important;
   border: 0;
   width: 15px;

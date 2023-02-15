@@ -8,9 +8,8 @@ describe('AdminViewGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminViewGridComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminViewGridComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AdminViewGridComponent);
     component = fixture.componentInstance;

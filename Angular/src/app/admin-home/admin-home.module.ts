@@ -9,13 +9,7 @@ import { AdminHomeComponent } from './admin-home.component';
 import { AdminHomeRoutingModule } from './admin-home-routing.module';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, SharedModule,AdminHomeRoutingModule],
+  imports: [CommonModule, TranslateModule, SharedModule, AdminHomeRoutingModule],
   declarations: [AdminHomeComponent],
 })
-export class adminModule {
-
-
-
-
-  
-}
+export class adminModule {}

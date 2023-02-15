@@ -9,6 +9,7 @@ import { AuthenticationService } from '../authentication.service';
 import { CredentialsService } from '@app/auth';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -16,78 +17,68 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrationComponent implements OnInit {
   error: string | undefined;
-  apiErr:boolean=false;
+  apiErr: boolean = false;
   loginError: boolean = false;
   isLoading: boolean = false;
   registerForm!: FormGroup;
-  errText:string ='';
+  errText: string = '';
   hashedPassword: any;
   constructor(
     private _router: Router,
     private _activatedRouter: ActivatedRoute,
     private authenticationService: AuthenticationService,
-    private _formBuilder :FormBuilder,
-    private _credentialService :CredentialsService,
-    private  _toasterService :ToastrService
+    private _formBuilder: FormBuilder,
+    private _credentialService: CredentialsService,
+    private _toasterService: ToastrService
   ) {
-
     this.createForm();
   }
 
-  ngOnInit(): void {
-
-  }
-
-
+  ngOnInit(): void {}
 
   register() {
-
     if (this.registerForm.valid) {
-   
-const salt = bcrypt.genSaltSync(10);
-const hashedPassword = bcrypt.hashSync(this.registerForm.value.password, salt);
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(this.registerForm.value.password, salt);
       this.isLoading = true;
       console.log('this.loginForm.valid', this.registerForm.value);
       const requestObj = {
-        "name": this.registerForm.value.name,
-        "email": this.registerForm.value.email,
-        "password": hashedPassword
-      }
+        name: this.registerForm.value.name,
+        email: this.registerForm.value.email,
+        password: hashedPassword,
+      };
       this.authenticationService.register(requestObj).subscribe(
         (response) => {
-          if(response.data.status==400){
+          if (response.data.status == 400) {
             // this._toasterService.error("Email is already registered");
-            }else{
-          this.isLoading = false;
-          console.log('response', response);
-          // this._toasterService.success("Registered successfully")
-          this._router.navigate(['/login']);
-        }
+          } else {
+            this.isLoading = false;
+            console.log('response', response);
+            // this._toasterService.success("Registered successfully")
+            this._router.navigate(['/login']);
+          }
         },
         (error) => {
           this.isLoading = false;
           this.apiErr = true;
-          this.errText = error?.error?.error?.message
-          if(!this.errText){
-            this.errText="Somthing went Wrong"
+          this.errText = error?.error?.error?.message;
+          if (!this.errText) {
+            this.errText = 'Somthing went Wrong';
           }
           console.log('response', error);
         }
       );
     }
-   
-    
-  };
-
-  
+  }
 
   private createForm() {
     this.registerForm = this._formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      confirmPassword:['', Validators.required]
-    });
+      confirmPassword: ['', Validators.required],
+    }
+    ,
+   );
   }
-
 }

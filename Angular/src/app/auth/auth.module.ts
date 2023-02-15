@@ -11,12 +11,17 @@ import { RegistrationComponent } from '@app/auth/registration/registration.compo
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule, I18nModule, AuthRoutingModule,
-  ToastrModule.forRoot({
-    timeOut:1000,
-    positionClass:'toast-top-right'
-  })
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    I18nModule,
+    AuthRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-top-right',
+    }),
   ],
-  declarations: [LoginComponent,RegistrationComponent],
+  declarations: [LoginComponent, RegistrationComponent],
 })
 export class AuthModule {}

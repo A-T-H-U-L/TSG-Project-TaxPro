@@ -9,13 +9,7 @@ import { AddRoutingModule } from './add-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, SharedModule,AddRoutingModule,ReactiveFormsModule],
+  imports: [CommonModule, TranslateModule, SharedModule, AddRoutingModule, ReactiveFormsModule],
   declarations: [AddComponent],
 })
-export class addModule {
-
-
-
-
-  
-}
+export class addModule {}

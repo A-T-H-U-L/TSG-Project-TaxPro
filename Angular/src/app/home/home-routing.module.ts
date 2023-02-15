@@ -7,12 +7,9 @@ import { Shell } from '@app/shell/shell.service';
 import { AuthenticationGuard } from '@app/auth';
 import { RoleGuard } from '@app/auth/roleGuard';
 
-
 const routes: Routes = [
   Shell.childRoutes([
-
-    { path: 'home', component: HomeComponent, data: { title: marker('Home') },canActivate:[RoleGuard.forRoles(1)] },
-   
+    { path: 'home', component: HomeComponent, data: { title: marker('Home') }, canActivate: [RoleGuard.forRoles(1),AuthenticationGuard] },
   ]),
 ];
 

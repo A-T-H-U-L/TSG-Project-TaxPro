@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders,HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -26,20 +26,17 @@ export class TaxProService {
   // }
 
   getTaxProList(): Observable<any> {
-
-    return this.httpClient.get('/taxpro/list', { observe: "response" }).pipe(
+    return this.httpClient.get('/taxpro/list', { observe: 'response' }).pipe(
       map((res: HttpResponse<any>) => {
         return res.body;
       })
     );
   }
-viewTaxPro(id:any): Observable<any>{
-
-  return this.httpClient.get('/taxpro/view/'+id, { observe: "response" }).pipe(
-    map((res: HttpResponse<any>) => {
-      return res.body;
-    })
-  );
-}
-
+  viewTaxPro(id: any): Observable<any> {
+    return this.httpClient.get('/taxpro/view/' + id, { observe: 'response' }).pipe(
+      map((res: HttpResponse<any>) => {
+        return res.body;
+      })
+    );
+  }
 }

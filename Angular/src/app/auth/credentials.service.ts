@@ -7,7 +7,7 @@ export interface Credentials {
 }
 
 const credentialsKey = '_app_cache';
-const rolekey='_app_data'
+const rolekey = '_app_data';
 
 /**
  * Provides storage for authentication credentials.
@@ -18,9 +18,9 @@ const rolekey='_app_data'
 })
 export class CredentialsService {
   private _credentials: any | null = null;
-  private _role:any | null = null;
-  private _name:any | null = null;
-  
+  private _role: any | null = null;
+  private _name: any | null = null;
+
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
     if (savedCredentials) {
@@ -35,23 +35,18 @@ export class CredentialsService {
   isAuthenticated(): boolean {
     return !!this.credentials;
   }
-    getRole():number{
-      console.log('sas')
-      console.log("id",JSON.parse(sessionStorage.getItem("_app_data")|| ""))
-    return JSON.parse(sessionStorage.getItem("_app_data")|| "");
+  getRole(): number {
+    console.log('sas');
+    console.log('id', JSON.parse(sessionStorage.getItem('_app_data') || ''));
+    return JSON.parse(sessionStorage.getItem('_app_data') || '');
+  }
 
-    }
-
-    getUserName():any{
-      
+  getUserName(): any {
     return this._name;
-
-    }
-    getUserRole():any{
-      
-      return this._role;
-  
-    }
+  }
+  getUserRole(): any {
+    return this._role;
+  }
   /**
    * Gets the user credentials.
    * @return The user credentials or null if the user is not authenticated.
@@ -69,21 +64,21 @@ export class CredentialsService {
    */
 
   //service to clear the Token from session storage
-  clearCredentila(){
+  clearCredentila() {
     this._credentials = null;
-    this._role=null
+    this._role = null;
     sessionStorage.removeItem(credentialsKey);
   }
 
   // function to set the data to session storage
-  setCredentials(credentialObj:any) {
+  setCredentials(credentialObj: any) {
     if (credentialObj) {
       this._credentials = credentialObj.data.accessToken;
-      this._role=credentialObj.data.userRole
-      this._name=credentialObj.data.userName;
-      
-    sessionStorage.setItem(credentialsKey, credentialObj.data.accessToken);
-    sessionStorage.setItem(rolekey, credentialObj.data.userRole);
+      this._role = credentialObj.data.userRole;
+      this._name = credentialObj.data.userName;
+
+      sessionStorage.setItem(credentialsKey, credentialObj.data.accessToken);
+      sessionStorage.setItem(rolekey, credentialObj.data.userRole);
     } else {
       this._credentials = null;
       sessionStorage.removeItem(credentialsKey);

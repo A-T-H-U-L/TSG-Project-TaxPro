@@ -7,11 +7,12 @@ import { Shell } from '@app/shell/shell.service';
 import { AuthenticationGuard } from '@app/auth';
 
 import { UserViewComponent } from './user-view.component';
+import { RoleGuard } from '@app/auth/roleGuard';
 
 
 const routes: Routes = [
 
-    { path: 'userView', component: UserViewComponent, data: { title: marker('UserView') },canActivate:[AuthenticationGuard] },
+    { path: 'userView', component: UserViewComponent, data: { title: marker('UserView') }, canActivate: [RoleGuard.forRoles(1),AuthenticationGuard]  },
 //   Shell.childRoutes([
 
      
